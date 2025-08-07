@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Datos Estadísticos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-infra-stats" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="header-actions">
+                    <a href="./tableroinfraestructura.html" class="back-to-dashboard-button">Regresar</a>
+                    <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+            </header>
+            <div class="content-full-width">
+                <h3>Datos Estadísticos</h3>
+                <div class="stats-controls">
+                    <!-- NUEVO: Filtro por mes -->
+                    <div class="month-filter-container">
+                        <label for="month-filter-select">Filtrar por Mes:</label>
+                        <select id="month-filter-select">
+                            <option value="0">Todos los Meses</option>
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="3">Marzo</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Mayo</option>
+                            <option value="6">Junio</option>
+                            <option value="7">Julio</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <button id="generate-by-category-btn" class="stats-button">Generar por Categoría</button>
+                    <button id="generate-by-status-btn" class="stats-button">Generar por Estatus</button>
+                </div>
+                <div class="chart-container">
+                    <p id="chart-placeholder">Selecciona un mes y una opción para generar la gráfica.</p>
+                    <canvas id="reportsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

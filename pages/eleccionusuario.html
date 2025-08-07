@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Menú Principal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-user-choice" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="header-actions">
+                    <!-- MODIFICADO: Enlace a la página de selección de rol -->
+                    <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+            </header>
+            <div class="content-center">
+                <h2 id="user-choice-welcome">Bienvenido, Usuario</h2>
+                <h3>¿Qué deseas hacer hoy?</h3>
+                <div class="role-options">
+                    <a href="./formularioinforme.html" class="role-card">
+                        <i class="fa-solid fa-file-pen"></i>
+                        <span>Hacer un Reporte</span>
+                    </a>
+                    <a href="./estadousuario.html" class="role-card">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Ver mis Reportes</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

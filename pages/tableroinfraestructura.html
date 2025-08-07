@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Dashboard Infraestructura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-infra-dashboard" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="user-info">
+                    <!-- MODIFICADO: Enlace a la página de selección de rol -->
+                    <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+                <i class="fa-solid fa-cubes-stacked header-icon"></i>
+            </header>
+            <div class="content-center">
+                <h2>Bienvenido a UniFix</h2>
+                <h3>¿Qué Deseas hacer hoy?</h3>
+                <div class="role-options">
+                    <a href="./gestionreportes.html" class="role-card">
+                        <i class="fa-solid fa-file-clipboard"></i>
+                        <span>Gestionar Reportes</span>
+                    </a>
+                    <a href="./estadisticasIn.html" class="role-card">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span>Datos estadísticos</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

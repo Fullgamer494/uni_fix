@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Crear Reporte</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-report-form" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="header-actions">
+                     <a href="./eleccionusuario.html" class="back-to-user-choice">Regresar</a>
+                     <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+            </header>
+            <div class="content-full-width">
+                <h3>Crear un Nuevo Reporte</h3>
+                <form id="report-form" class="report-form-grid">
+                    <!-- ID CORREGIDO a "report-name" para consistencia con el JS -->
+                    <div class="form-group">
+                        <label for="report-name">Nombre del Reporte:</label>
+                        <input type="text" id="report-name" required placeholder="Ej: Foco fundido, Silla rota">
+                    </div>
+                    <div class="form-group">
+                        <label for="report-date">Fecha del Reporte:</label>
+                        <!-- El JS se encargará de limitar la fecha y poner la de hoy -->
+                        <input type="date" id="report-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-user">Nombre del Usuario:</label>
+                        <input type="text" id="report-user" required placeholder="Tu nombre completo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-location">Lugar / Salón Específico:</label>
+                        <input type="text" id="report-location" placeholder="Ej: Salón 201, Laboratorio B" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="report-type">Tipo de Reporte:</label>
+                        <select id="report-type" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-building">Edificio:</label>
+                        <select id="report-building" required>
+                             <option value="" disabled selected>Selecciona una opción</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="report-description">Descripción del Reporte</label>
+                        <textarea id="report-description" rows="5" placeholder="Describe el problema con el mayor detalle posible." required></textarea>
+                    </div>
+                    <div class="form-group full-width center-button">
+                        <button type="submit">Enviar Reporte</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

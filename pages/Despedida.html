@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - ¡Hasta Pronto!</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-logout-thanks" class="view">
+            <div class="content-center logout-message">
+                 <div class="logo-large">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <h2>Gracias por usar UniFix</h2>
+            </div>
+        </section>
+    </main>
+    <!-- MODIFICADO: Este script redirige a la página de selección de rol (Index.html) después de 3 segundos -->
+    <script>
+        setTimeout(() => {
+            window.location.href = './Index.html';
+        }, 3000); // 3000 milisegundos = 3 segundos
+    </script>
+</body>
+</html>

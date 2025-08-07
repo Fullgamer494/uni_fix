@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Selección de Rol</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-role-select" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+            </header>
+            <div class="content-center">
+                <h2>Bienvenido al Administrador de Usuarios</h2>
+                <h3>¿Qué Usuario Eres?</h3>
+                <div class="role-options">
+                    <div id="role-student" class="role-card" data-role="student">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>Alumnos</span>
+                    </div>
+                    <div id="role-teacher" class="role-card" data-role="teacher">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Maestros y<br>Administrativos</span>
+                    </div>
+                    <div id="role-infra" class="role-card" data-role="infra">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                        <span>Dep. de<br>Infraestructura</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

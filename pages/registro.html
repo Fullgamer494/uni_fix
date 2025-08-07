@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Registro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-register" class="view">
+            <div class="form-container">
+                <div class="form-side">
+                    <h3>Registro</h3>
+                    <form id="register-form">
+                        <label for="register-name">Nombres</label>
+                        <input type="text" id="register-name" placeholder="Obligatorio" required>
+
+                        <label for="register-lastname">Apellidos</label>
+                        <input type="text" id="register-lastname" placeholder="Obligatorio" required>
+
+                        <label for="register-matricula">Matrícula</label> <!-- ID corregido -->
+                        <input type="text" id="register-matricula" placeholder="Obligatorio" required>
+
+                        <label for="register-email">Correo electrónico</label>
+                        <input type="email" id="register-email" placeholder="institucional" required>
+
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" placeholder="Al menos 8 caracteres" required minlength="8">
+
+                        <label for="register-confirm-password">Confirmar Contraseña</label>
+                        <input type="password" id="register-confirm-password" placeholder="Repite la contraseña" required minlength="8">
+
+                        <button type="submit">Crear Registro</button>
+                    </form>
+                    <a href="./inciosesion.html" id="back-to-login" class="back-link">Ya tengo cuenta, iniciar sesión</a>
+                </div>
+                <div class="brand-side-image"></div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

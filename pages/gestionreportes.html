@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Gestionar Reportes</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-infra-manage-reports" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="header-actions">
+                    <a href="tableroinfraestructura.html" class="back-to-dashboard-button">Regresar</a>
+                    <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+            </header>
+            <div class="content-full-width">
+                <h3>Gestionar Reportes</h3>
+                <div class="table-controls">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="infra-search-input" placeholder="Buscar en todos los reportes...">
+                    </div>
+                    <div class="filter-dropdown">
+                        <button class="filter-btn">
+                            <i class="fa-solid fa-filter"></i> Filtrar Columnas
+                        </button>
+                        <!-- ✅ ID añadido para fácil selección en JS -->
+                        <div class="filter-menu" id="column-filter-menu">
+                            <!-- Los data-column ahora empiezan en 0 -->
+                            <label><input type="checkbox" data-column="0" checked> ID</label>
+                            <label><input type="checkbox" data-column="1" checked> Nombre del Reporte</label>
+                            <label><input type="checkbox" data-column="2" checked> Usuario</label>
+                            <label><input type="checkbox" data-column="3" checked> Lugar</label>
+                            <label><input type="checkbox" data-column="4" checked> Fecha</label>
+                            <label><input type="checkbox" data-column="5" checked> Descripción</label>
+                            <label><input type="checkbox" data-column="6" checked> Estatus</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <!-- ✅ ID añadido a la tabla -->
+                    <table id="infra-reports-table">
+                        <thead>
+                            <!-- ✅ Cabeceras actualizadas para coincidir con la carga dinámica -->
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre del Reporte</th>
+                                <th>Usuario</th>
+                                <th>Lugar</th>
+                                <th>Fecha</th>
+                                <th>Descripción</th>
+                                <th>Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="infra-reports-table-body">
+                           <!-- El script JS llenará esta tabla dinámicamente -->
+                           <tr><td colspan="7" style="text-align: center;">Cargando reportes...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFix - Mis Reportes</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <main id="app-container">
+        <section id="view-user-reports-status" class="view">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>UniFix</span>
+                </div>
+                <div class="header-actions">
+                    <a href="./eleccionusuario.html" class="back-to-user-choice">Regresar</a>
+                    <!-- MODIFICADO: Enlace a la página de selección de rol -->
+                    <a href="./Index.html" class="logout-button">Cerrar sesión</a>
+                </div>
+            </header>
+            <div class="content-full-width">
+                <h3>Estado de mis Reportes</h3>
+                <div class="table-container">
+                    <table id="user-reports-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Reporte</th>
+                                <th>Fecha</th>
+                                <th>Lugar</th>
+                                <th>Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-reports-table-body">
+                            <tr>
+                                <td>Falla en proyector</td><td>2023-10-27</td><td>Salón 101</td><td><span class="status-tag status-resuelto">Resuelto</span></td>
+                            </tr>
+                            <tr>
+                                <td>Silla rota</td><td>2023-10-23</td><td>Biblioteca</td><td><span class="status-tag status-en-proceso">En Proceso</span></td>
+                            </tr>
+                             <tr>
+                                <td>Ventana no cierra</td><td>2023-10-21</td><td>Laboratorio C</td><td><span class="status-tag status-pendiente">Pendiente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../script/script.js"></script>
+</body>
+</html>
