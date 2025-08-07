@@ -20,11 +20,21 @@
                         <label for="register-lastname">Apellidos</label>
                         <input type="text" id="register-lastname" placeholder="Obligatorio" required>
 
-                        <label for="register-matricula">Matrícula</label> <!-- ID corregido -->
+                        <label for="register-matricula">Matrícula</label>
                         <input type="text" id="register-matricula" placeholder="Obligatorio" required>
 
                         <label for="register-email">Correo electrónico</label>
                         <input type="email" id="register-email" placeholder="institucional" required>
+
+                        <!-- NUEVO: Campo para seleccionar tipo de usuario -->
+                        <label for="register-type">Tipo de Usuario</label>
+                        <select id="register-type" required>
+                            <option value="" disabled selected>Selecciona tu tipo</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Infraestructura">Infraestructura</option>
+                        </select>
 
                         <label for="register-password">Contraseña</label>
                         <input type="password" id="register-password" placeholder="Al menos 8 caracteres" required minlength="8">
