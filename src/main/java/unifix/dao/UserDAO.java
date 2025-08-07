@@ -22,10 +22,9 @@ public class UserDAO {
 
     public static User login(User user) {
         try (Connection con = DatabaseConnection.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email=? AND password=? AND type=?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email=? AND password=?");
             ps.setString(1, user.email);
             ps.setString(2, user.password);
-            ps.setString(3, user.type);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 User u = new User();

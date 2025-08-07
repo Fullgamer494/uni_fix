@@ -7,6 +7,8 @@ import unifix.dao.HistoryDAO;
 import unifix.model.Report;
 import unifix.model.History;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class ReportController {
     public static void register(Javalin app) {
@@ -27,21 +29,28 @@ public class ReportController {
             boolean success = ReportDAO.create(report);
 
             if (success) {
-                ctx.status(201).json(report);
+                ctx.status(201).json(createSuccessResponse("Reporte creado exitosamente", report));
             } else {
-                ctx.status(400).json("Error: No se pudo crear el reporte");
+                ctx.status(400).json(createErrorResponse("No se pudo crear el reporte"));
             }
         } catch (Exception e) {
-            ctx.status(500).json("Error interno: " + e.getMessage());
+            ctx.status(500).json(createErrorResponse("Error interno: " + e.getMessage()));
         }
     }
 
     private static void getAllReports(Context ctx) {
         try {
             List<Report> reports = ReportDAO.getAll();
-            ctx.json(reports);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Reportes obtenidos exitosamente");
+            response.put("data", reports);
+            response.put("count", reports.size());
+
+            ctx.json(response);
         } catch (Exception e) {
-            ctx.status(500).json("Error al obtener reportes: " + e.getMessage());
+            ctx.status(500).json(createErrorResponse("Error al obtener reportes: " + e.getMessage()));
         }
     }
 
@@ -51,14 +60,14 @@ public class ReportController {
             Report report = ReportDAO.getById(id);
 
             if (report != null) {
-                ctx.json(report);
+                ctx.json(createSuccessResponse("Reporte encontrado", report));
             } else {
-                ctx.status(404).json("Reporte no encontrado");
+                ctx.status(404).json(createErrorResponse("Reporte no encontrado"));
             }
         } catch (NumberFormatException e) {
-            ctx.status(400).json("ID inválido");
+            ctx.status(400).json(createErrorResponse("ID inválido"));
         } catch (Exception e) {
-            ctx.status(500).json("Error al buscar reporte");
+            ctx.status(500).json(createErrorResponse("Error al buscar reporte: " + e.getMessage()));
         }
     }
 
@@ -68,16 +77,24 @@ public class ReportController {
             String status = ctx.queryParam("status");
 
             if (status == null || status.isEmpty()) {
-                ctx.status(400).json("El parámetro 'status' es requerido");
+                ctx.status(400).json(createErrorResponse("El parámetro 'status' es requerido"));
                 return;
             }
 
             boolean updated = ReportDAO.updateStatus(id, status);
-            ctx.status(updated ? 200 : 404);
+
+            if (updated) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("id", id);
+                data.put("status", status);
+                ctx.status(200).json(createSuccessResponse("Estado actualizado exitosamente", data));
+            } else {
+                ctx.status(404).json(createErrorResponse("Reporte no encontrado o no se pudo actualizar"));
+            }
         } catch (NumberFormatException e) {
-            ctx.status(400).json("ID inválido");
+            ctx.status(400).json(createErrorResponse("ID inválido"));
         } catch (Exception e) {
-            ctx.status(500).json("Error al actualizar estado");
+            ctx.status(500).json(createErrorResponse("Error al actualizar estado: " + e.getMessage()));
         }
     }
 
@@ -88,11 +105,16 @@ public class ReportController {
             history.reportId = reportId; // Asegurar consistencia
 
             boolean success = HistoryDAO.addComment(history);
-            ctx.status(success ? 201 : 400);
+
+            if (success) {
+                ctx.status(201).json(createSuccessResponse("Entrada de historial agregada exitosamente", history));
+            } else {
+                ctx.status(400).json(createErrorResponse("No se pudo agregar la entrada de historial"));
+            }
         } catch (NumberFormatException e) {
-            ctx.status(400).json("ID de reporte inválido");
+            ctx.status(400).json(createErrorResponse("ID de reporte inválido"));
         } catch (Exception e) {
-            ctx.status(500).json("Error al agregar historial");
+            ctx.status(500).json(createErrorResponse("Error al agregar historial: " + e.getMessage()));
         }
     }
 
@@ -100,11 +122,36 @@ public class ReportController {
         try {
             int reportId = Integer.parseInt(ctx.pathParam("id"));
             List<History> history = ReportDAO.getHistory(reportId);
-            ctx.json(history);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Historial obtenido exitosamente");
+            response.put("data", history);
+            response.put("reportId", reportId);
+            response.put("count", history.size());
+
+            ctx.json(response);
         } catch (NumberFormatException e) {
-            ctx.status(400).json("ID de reporte inválido");
+            ctx.status(400).json(createErrorResponse("ID de reporte inválido"));
         } catch (Exception e) {
-            ctx.status(500).json("Error al obtener historial");
+            ctx.status(500).json(createErrorResponse("Error al obtener historial: " + e.getMessage()));
         }
+    }
+
+    // Métodos auxiliares para crear respuestas consistentes
+    private static Map<String, Object> createSuccessResponse(String message, Object data) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", message);
+        response.put("data", data);
+        return response;
+    }
+
+    private static Map<String, Object> createErrorResponse(String message) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", false);
+        response.put("message", message);
+        response.put("data", null);
+        return response;
     }
 }
